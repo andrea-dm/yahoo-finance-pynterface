@@ -1,3 +1,35 @@
+#!/usr/bin/env python
+#
+# Yahoo! Finance Fix for Pandas Datareader
+# https://github.com/andrea-dm/yahoo-finance-pynterface
+#
+# Copyright (c) 2018 Andera del Monaco
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+
+__name__    = "yahoo_finance_pynterface";
+__version__ = "1.0.1";
+__author__  = "Andrea del Monaco";
+__all__     = ['Get'];
+
+
 import api
 import core
 
@@ -7,12 +39,6 @@ import concurrent.futures   as cf
 import pandas               as pd
 
 from typing                 import Tuple, Dict, List, Union, ClassVar, Any, Optional, Type, NoReturn 
-
-
-__name__    = "yahoo_finance_pynterface";
-__version__ = "1.0.1";
-__author__  = "Andrea del Monaco";
-__all__     = ['Get'];
 
 
 class Get():
