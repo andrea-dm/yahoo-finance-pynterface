@@ -33,8 +33,12 @@
     <Folder Include="yahoo_finance_pynterface\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LICENSE.txt" />
-    <Content Include="README.MD" />
+    <Content Include="LICENSE.txt">
+      <Publish>True</Publish>
+    </Content>
+    <Content Include="README.MD">
+      <Publish>True</Publish>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
