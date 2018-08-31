@@ -1,4 +1,4 @@
-#Yahoo Finance Python Interface
+# Yahoo Finance Python Interface
 
 
 **yahoo-finance-pynterface** is a Python package that provide a new interface to the Yahoo Finance API.
@@ -6,7 +6,7 @@
 Check the [Wiki Page](https://github.com/andrea-dm/yahoo-finance-pynterface/wiki) for a quick reference.
 
 
-###Motivation
+### Motivation
 
  [Yahoo Finance](https://finance.yahoo.com/) is by far the most popular (_and free!_) resource for financial data. 
 
@@ -17,7 +17,7 @@ However, most of such projects were aiming at filling the gap that the changes m
 and it is meant to offer effective methods to interact with its API. 
 
 
-###About
+### About
 
 **yahoo-finance-pynterface** is based on [pandas](https://pandas.pydata.org/).
 Hence, most of the data retrieved are returned as _pandas_.**DataFrame** object. 
@@ -26,7 +26,7 @@ Even if a stable release is available, the project has yet to be considered "com
 Please, drop me an email if any comment/suggestion/remark pops up in your mind :)
 
 
-###Change Log
+### Change Log
 
 **1.0.1** (August 31, 2018)
-:  First stable release
+* First stable release
