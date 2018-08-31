@@ -4,7 +4,7 @@
  [Yahoo Finance](https://finance.yahoo.com/) is by far the most popular (_and free!_) resource for financial data. 
 
 Many packages have been distributed to provide access to such a resource in the recent past.
-However, most of such projects them were actually addressing the problems that arose within the community after the changes made in May, 2017 by the Yahoo.
+However, most of such projects were addressing the problems that arose within the community after the changes made in May, 2017 by the Yahoo.
 
 **yahoo-finance-pynterface** has been intended to provide a completely new interface to Yahoo Finance,
 and it is meant to offer effective methods to interact with its API. 

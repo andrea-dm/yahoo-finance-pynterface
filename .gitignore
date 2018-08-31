@@ -67,6 +67,7 @@ artifacts/
 *.vssscc
 .builds
 *.pidb
+*.pyproj
 *.svclog
 *.scc
 
