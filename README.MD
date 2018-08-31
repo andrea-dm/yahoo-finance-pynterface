@@ -1,4 +1,4 @@
-**Yahoo Finance Python Interface**
+#Yahoo Finance Python Interface
 ===================
 
  [Yahoo Finance](https://finance.yahoo.com/) is by far the most popular (_and free!_) resource for financial data. 
@@ -13,13 +13,13 @@ Even if a stable release is available, the project has yet to be considered "com
 Please, drop me an email if any comment/suggestion/remark pops up in your mind :)
 
 
-Getting Started
+##Getting Started
 -------------
 
 Basic usage:
 
 ```python
-    import yahoo_finance_pynterface as yfi
+    import yahoo_finance_pynterface as yahoo
     
-    data = yfi.Get.Prices("AAPL")
+    data = yahoo.Get.Prices("AAPL")
 ```

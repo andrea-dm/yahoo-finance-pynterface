@@ -7,8 +7,7 @@
     </ProjectHome>
     <StartupFile>
     </StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>yahoo_finance_pynterface;..\yahoo_finance_pynterface;examples</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>yahoo-finance-pynterface</Name>
