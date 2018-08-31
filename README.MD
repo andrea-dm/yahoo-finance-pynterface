@@ -19,7 +19,7 @@ Getting Started
 Basic usage:
 
 ```python
-    import yahoo_finance_pynterface as yfi
+    import yahoo_finance_pynterface as yahoo
     
-    data = yfi.Get.Prices("AAPL")
+    data = yahoo.Get.Prices("AAPL")
 ```
