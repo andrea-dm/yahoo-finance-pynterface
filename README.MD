@@ -23,3 +23,5 @@ Basic usage:
     
     data = yahoo.Get.Prices("AAPL")
 ```
+
+Check the "examples" folder for further _examples_!
