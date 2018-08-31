@@ -28,5 +28,5 @@ Please, drop me an email if any comment/suggestion/remark pops up in your mind :
 
 ### Change Log
 
-**1.0.1** (August 31, 2018)
+_August 31, 2018_: **1.0.1**
 * First stable release
