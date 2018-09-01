@@ -11,10 +11,8 @@
 #
 
 import yahoo_finance_pynterface as yahoo
-import datetime                 as dt
 import matplotlib.pyplot        as plt
 import matplotlib.dates         as mdates
-import matplotlib.ticker        as mticker
 
 if __name__ == '__main__':
     fig, ax = plt.subplots(1);
