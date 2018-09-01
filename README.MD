@@ -27,6 +27,9 @@ Please, drop me an email if any comment/suggestion/remark pops up in your mind :
 
 
 ### Requirements
+| **yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. 
+| Any help to add support for `Python == 3.x` is welcome and encouraged as well as very much appreciated!
+
 - `Python` >= 3.6
 
 ### Change Log
