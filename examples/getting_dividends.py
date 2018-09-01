@@ -14,9 +14,8 @@ import matplotlib.ticker        as mticker
 
 if __name__ == '__main__':
     fig, ax = plt.subplots(1)
-
-    ticker = "AAPL";
-    r,_ = yahoo.Get.Dividends(ticker, period=['1998-09-1','2018-08-31']);
+    
+    r,_ = yahoo.Get.Dividends("AAPL", period=['1998-09-1','2018-08-31']);
     if len(r)>0:
         r.plot(kind='bar', ax=ax);
         ax.grid(True, alpha=0.2)
