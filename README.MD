@@ -9,23 +9,23 @@ Check the [Wiki Page](https://github.com/andrea-dm/yahoo-finance-pynterface/wiki
 ### Motivation
  [Yahoo Finance](https://finance.yahoo.com/) is by far the most popular (_and free!_) resource for financial data. 
 
-Many packages have been distributed to provide access to such a resource in the recent past.
+Many packages have been distributed to provide access to such a resource in the recent past.<br />
 However, most of such projects were aiming at filling the gap that the changes made in May, 2017 by the Yahoo Team left behind.
 
-**yahoo-finance-pynterface** has been intended to provide a completely new interface to Yahoo Finance,
+**yahoo-finance-pynterface** has been intended to provide a completely new interface to Yahoo Finance,<br />
 and it is meant to offer effective methods to interact with its API. 
 
 
 ### About
-| **yahoo-finance-pynterface** is based on [pandas](https://pandas.pydata.org/).
-| Hence, most of the data retrieved are returned as _pandas_.**DataFrame** object. 
+**yahoo-finance-pynterface** is based on [pandas](https://pandas.pydata.org/).<br />
+Hence, most of the data retrieved are returned as _pandas_.**DataFrame** object. 
 
 Even if a stable release is available, the project has yet to be considered "complete" and many other features has yet to come!
 Please, drop me an email if any comment/suggestion/remark pops up in your mind :)
 
 
 ### Requirements
-**yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. <br />
+**yahoo-finance-pynterface** is currently working on `<tt>Python</tt> >= 3.6` only. <br />
 Any help to add support for `Python == 2.x` is welcome and encouraged as well as very much appreciated! `<addr>`
 
 Furthermore, the following packages are required:
