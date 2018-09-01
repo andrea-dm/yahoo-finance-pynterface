@@ -9,8 +9,10 @@ import datetime         as dt
 import numpy            as np
 import pandas           as pd
 
-from typing             import Tuple, Dict, List, Union, ClassVar, Any, Optional, Type, NoReturn
+from typing             import Tuple, Dict, List, Union, ClassVar, Any, Optional, Type, NoReturn, NewType
 from dateutil.parser    import parse as dt_p
+
+import types
 
 
 class AccessMode(core.API):
@@ -27,8 +29,7 @@ class EventsInQuery(core.API):
     SPLITS = 'split';
 
 
-class Query:
-
+class Query():
     __events__:ClassVar[List[str]]             = ["history", "split", "div"];
     __chart_range__:ClassVar[List[str]]        = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"];
     __chart_interval__:ClassVar[List[str]]     = ["1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h", "1d", "5d", "1wk", "1mo", "3mo"];
@@ -212,8 +213,7 @@ class Response:
             return d
 
 
-class Session: 
-    
+class Session:     
     __yahoo_finance_url__:str = "";
     __yahoo_finance_api__:Type[AccessMode] = AccessMode.NONE;
 

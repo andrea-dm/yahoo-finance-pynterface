@@ -5,10 +5,9 @@ from typing         import Tuple, Dict, List, Union, ClassVar, Any, Optional, Ca
 
 class API(Enum):
     def __repr__(self):
-        return f"<YahooFinance{self.__class__.__name__}: '{self.value}'>";
+        return f"<YahooFinancePynterface.core {self.__name__} : '{self.value}'>";
     def __str__(self):
         return self.value;
-
 
 class ProcessingMode(API):
     SERIAL = 'serial';

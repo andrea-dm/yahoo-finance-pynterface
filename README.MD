@@ -26,6 +26,9 @@ Even if a stable release is available, the project has yet to be considered "com
 Please, drop me an email if any comment/suggestion/remark pops up in your mind :)
 
 
+### Requirements
+- [x] python >= 3.6
+
 ### Change Log
 
 _August 31, 2018_:  **Version 1.0.1**

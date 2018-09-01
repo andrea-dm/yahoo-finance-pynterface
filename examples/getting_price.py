@@ -3,7 +3,6 @@ import matplotlib.pyplot        as plt
 import matplotlib.dates         as mdates
 
 if __name__ == '__main__':
-
     fig, ax = plt.subplots(1);
     fig.fmt_xdata = mdates.DateFormatter('%Y-%m-%d');
     ax.grid(True);
