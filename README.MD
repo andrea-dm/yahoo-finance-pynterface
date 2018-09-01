@@ -40,6 +40,6 @@ Furthermore, the following packages are required:
 
 ### Change Log
 
-**Version 1.0.1**
-	+ _August 31, 2018_
-	+ First stable release
+ _August 31, 2018_
+$\qquad$ **Version 1.0.1**
+$\qquad\qquad$ First stable release
