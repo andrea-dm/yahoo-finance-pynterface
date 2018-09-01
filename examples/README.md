@@ -22,3 +22,12 @@ the 20-periods simple moving avarege will be plotted on the same figure as well,
 This script will download the timeseries of `APPLE` dividends of the last 10 years.<br />
 The result will be then plotted as bar chart using pandas' internal plotting system, as the picture below shows.
 ![result](resources/getting_dividends.png)
+
+
+<br />
+
+
+## `getting_dividends.py`
+This script will download the timeseries of APPLE stock splits since January, 1st 1980 via the api 'download',
+and then it will print the data on screen.
+![result](resources/getting_splits.png)
