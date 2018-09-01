@@ -46,3 +46,9 @@ Furthermore, the following packages are required:
  _August, 2018_ <br />
 &nbsp;&nbsp; **Version 1.0.1** <br />
 &nbsp;&nbsp;&nbsp;&nbsp; First stable release
+
+<br />
+
+## Thanks
+For real, thanks!
+-- andrea-dm
