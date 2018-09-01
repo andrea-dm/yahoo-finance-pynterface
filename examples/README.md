@@ -17,7 +17,7 @@ the 20-periods simple moving avarege will be plotted on the same figure as well.
 <br />
 
 
-## `getting_prices.py`
+## `getting_dividends.py`
 This script will download the timeseries of `APPLE` dividends of the last 10 years.<br />
 The result will be then plotted as bar chart using the matplotlib package, as the picture below shows.
 
