@@ -27,7 +27,7 @@ Please, drop me an email if any comment/suggestion/remark pops up in your mind :
 
 
 ### Requirements
-- [x] python >= 3.6
+- [#python >= 3.6
 
 ### Change Log
 
