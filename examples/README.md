@@ -28,6 +28,6 @@ The result will be then plotted as bar chart using pandas' internal plotting sys
 
 
 ## `getting_dividends.py`
-This script will download the timeseries of APPLE stock splits since January, 1st 1980 via the api 'download',
+This script will download the timeseries of APPLE stock splits since January, 1st 1980 via the api 'download',<br />
 and then it will print the data on screen.
 ![result](resources/getting_splits.png)
