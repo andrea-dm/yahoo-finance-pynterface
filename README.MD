@@ -50,5 +50,5 @@ Furthermore, the following packages are required:
 <br />
 
 ## Thanks
-For real, thanks!
+For real, thanks!<br />
 -- andrea-dm
