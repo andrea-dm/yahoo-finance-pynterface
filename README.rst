@@ -2,4 +2,4 @@ Yahoo Finance Python Interface
 ==========================================
 
 
-.. highlight:: c
+.. c:member:: PyObject* PyTypeObject.tp_bases
