@@ -41,5 +41,5 @@ Furthermore, the following packages are required:
 ### Change Log
 
  _August 31, 2018_
-$\qquad$ **Version 1.0.1**
-$\qquad\qquad$ First stable release
+&nbsp;&nbsp; **Version 1.0.1**
+&nbsp;&nbsp;&nbsp;&nbsp; $\qquad\qquad$ First stable release
