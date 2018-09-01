@@ -27,10 +27,18 @@ Please, drop me an email if any comment/suggestion/remark pops up in your mind :
 
 
 ### Requirements
-| **yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. 
-| Any help to add support for `Python == 3.x` is welcome and encouraged as well as very much appreciated!
+**yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. 
+Any help to add support for `Python == 2.x` is welcome and encouraged as well as very much appreciated!
 
-- `Python` >= 3.6
+Furthermore, the following packages are required:
+
+- `requests >= 2.19.1`
+- `pandas >= 0.23.4`
+- `numpy >= 1.15.1`
+- `pytz >= 2018.5`
+- `dateutil >= 2.7.3`
+- `aenum >= 2.1.2`
+
 
 ### Change Log
 
