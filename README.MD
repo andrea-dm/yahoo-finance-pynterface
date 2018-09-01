@@ -17,7 +17,7 @@ and it is meant to offer effective methods to interact with its API.
 
 
 ### About
-**yahoo-finance-pynterface** is based on [pandas](https://pandas.pydata.org/).
+| **yahoo-finance-pynterface** is based on [pandas](https://pandas.pydata.org/).
 | Hence, most of the data retrieved are returned as _pandas_.**DataFrame** object. 
 
 Even if a stable release is available, the project has yet to be considered "complete" and many other features has yet to come!
@@ -25,8 +25,8 @@ Please, drop me an email if any comment/suggestion/remark pops up in your mind :
 
 
 ### Requirements
-**yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. 
-| Any help to add support for `Python == 2.x` is welcome and encouraged as well as very much appreciated! `<addr>`
+**yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. <br />
+Any help to add support for `Python == 2.x` is welcome and encouraged as well as very much appreciated! `<addr>`
 
 Furthermore, the following packages are required:
 
@@ -40,6 +40,6 @@ Furthermore, the following packages are required:
 
 ### Change Log
 
- _August 31, 2018_
-&nbsp;&nbsp; **Version 1.0.1**
-&nbsp;&nbsp;&nbsp;&nbsp; $\qquad\qquad$ First stable release
+ _August 31, 2018_ <br />
+&nbsp;&nbsp; **Version 1.0.1** <br />
+&nbsp;&nbsp;&nbsp;&nbsp; First stable release
