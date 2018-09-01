@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Yahoo! Finance Fix for Pandas Datareader
+# Yahoo Finance Python Interface
 # https://github.com/andrea-dm/yahoo-finance-pynterface
 #
 # Copyright (c) 2018 Andera del Monaco
