@@ -4,18 +4,21 @@ from typing         import Tuple, Dict, List, Union, ClassVar, Any, Optional, Ca
 
 
 class API(Enum):
+    # Base class for enumeration
     def __repr__(self):
         return f"<YahooFinancePynterface.core {self.__name__} : '{self.value}'>";
     def __str__(self):
         return self.value;
 
 class ProcessingMode(API):
+    # Enumeration class to list available processing modes.
     SERIAL = 'serial';
     PARALLEL = 'parallel';
     AUTO = 'auto';
 
 
 def parser(d:Any, tuplename='YahooFinanceDataTuple') -> Any:
+    # A simple recursive parser to return a more 'readable' namedtuple.
     if d is "null":
         return None
     elif isinstance(d,dict):
