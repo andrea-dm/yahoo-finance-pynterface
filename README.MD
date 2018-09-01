@@ -19,7 +19,7 @@ and it is meant to offer effective methods to interact with its API.
 <br />
 
 ## About
-**yahoo-finance-pynterface** is based on [pandas](https://pandas.pydata.org/).<br />
+**yahoo-finance-pynterface** makes an extensive use of [pandas](https://pandas.pydata.org/).<br />
 Hence, most of the data retrieved are returned as _pandas_.**DataFrame** object. 
 
 Even if a stable release is available, the project has yet to be considered "complete" and many other features has yet to come!
