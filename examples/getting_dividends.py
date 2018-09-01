@@ -9,7 +9,6 @@
 #
 
 import yahoo_finance_pynterface as yahoo
-import datetime                 as dt
 import matplotlib.pyplot        as plt
 import matplotlib.ticker        as mticker
 

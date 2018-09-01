@@ -11,19 +11,23 @@
 #
 
 import yahoo_finance_pynterface as yahoo
+import datetime                 as dt
 import matplotlib.pyplot        as plt
 import matplotlib.dates         as mdates
+import matplotlib.ticker        as mticker
 
 if __name__ == '__main__':
     fig, ax = plt.subplots(1);
-    fig.fmt_xdata = mdates.DateFormatter('%Y-%m-%d');
-    ax.grid(True);
 
     ticker = "AAPL";
     r,_ = yahoo.Get.Prices(ticker, period=['2017-09-1','2018-08-31']);
     if len(r)>0:
         plt.plot(r.index.values, r['Close']);
         plt.plot(r.index.values, r['Close'].rolling(20).mean());
+        ax.grid(True, alpha=0.5);
+        ax.set_yticklabels([f"{i*20}.00 $" for i in range(6,15)]);
+        ax.xaxis.set_major_locator(mdates.MonthLocator());
+        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'));
         print(r['Close'])
     else:
         print("something odd happened o.O")
