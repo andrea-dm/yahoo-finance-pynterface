@@ -39,11 +39,29 @@ from typing                 import Tuple, Dict, List, Union, ClassVar, Any, Opti
 
 
 class Get():
-
+    # Class container that exposes the methods available
+    # to interact with the Yahoo Finance API.
+    #
+    # Such methods are:
+    #
+    # - With(...) :                 to enable/disable parallel calculations;
+    # - CurrentProcessingMode() :   to get the current processing mode;
+    # - Info(...) :                 to retrieve basic informations about the ticker such as trading periods, base currency, ...;
+    # - Prices(...) :               to get the time series of OHLC prices together with Volumes (and adjusted close prices, when available);
+    # - Dividends(...) :            to get the time series of dividends;
+    # - Splits(...) :               to get the time series of splits;
+    #
+    # The above methods should be sufficient for any standard usage.
+    # To gain much more control over the data sent back by Yahoo, the following method is implemented:
+    #
+    # - Data(...) :                 the basic method that is actually pushing the request for data.
+    #
+    # All the other methods are somewhat relying on it.
+   
     __processing_mode__:Type[core.ProcessingMode] = core.ProcessingMode.AUTO;
 
     @classmethod
-    def Use(cls, mode:Type[core.ProcessingMode]) -> Optional[NoReturn]:
+    def With(cls, mode:Type[core.ProcessingMode]) -> Optional[NoReturn]:
         if not isinstance(mode,core.ProcessingMode):
             raise TypeError(f"invalid type for the argument 'mode'! <class 'core.ProcessingMode'> expected; got '{type(mode)}'");
         else:

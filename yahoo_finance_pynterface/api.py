@@ -16,6 +16,7 @@ import types
 
 
 class AccessMode(core.API):
+    # Enumeration class to list available API access modes.
     NONE = 'n/a';
     DOWNLOAD = 'download';
     CHART = 'chart';
@@ -23,6 +24,7 @@ class AccessMode(core.API):
 
 
 class EventsInQuery(core.API):
+    # Enumeration class to list the 'events' that is possible to request.
     NONE = '';
     HISTORY = 'history';
     DIVIDENDS = 'div';
@@ -30,6 +32,10 @@ class EventsInQuery(core.API):
 
 
 class Query():
+    # Class that encodes the request parameters into a query.
+    # It provides methods to set such parameters 
+    # as well as to validate them in accordance to the Yahoo Finance API expected arguments.
+
     __events__:ClassVar[List[str]]             = ["history", "split", "div"];
     __chart_range__:ClassVar[List[str]]        = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"];
     __chart_interval__:ClassVar[List[str]]     = ["1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h", "1d", "5d", "1wk", "1mo", "3mo"];
@@ -113,6 +119,8 @@ class Query():
 
 
 class Response:   
+    # Class to parse and process responses sent back by the Yahoo Finance API.
+    # Use the 'Parse()' method to correctly retrieve data structures in accordance to the chosen 'AccessMode' API.
 
     def __init__(self, input:Type[requests.models.Response]): 
         self.__format__:str = ""; 
@@ -213,7 +221,16 @@ class Response:
             return d
 
 
-class Session:     
+class Session:
+    # A lower level class that explicitly requests data to Yahoo Finance via HTTP.
+    # I provides two 'public' methods:
+    #
+    # - With(...):  to set the favorite access mode;
+    # - Get(...):   to explicitly push request to Yahoo.
+    #
+    # It implements a recursive call to the HTTP 'GET' method in case of failure.
+    # The maximum number of attempts has been hardcodedly set to 10.
+
     __yahoo_finance_url__:str = "";
     __yahoo_finance_api__:Type[AccessMode] = AccessMode.NONE;
 
