@@ -25,7 +25,7 @@ Please, drop me an email if any comment/suggestion/remark pops up in your mind :
 
 
 ### Requirements
-**yahoo-finance-pynterface** is currently working on <code>Python</code> >= 3.6 only. <br />
+**yahoo-finance-pynterface** is currently working on `Python >= 3.6` only. <br />
 Any help to add support for `Python == 2.x` is welcome and encouraged as well as very much appreciated! `<addr>`
 
 Furthermore, the following packages are required:
@@ -38,8 +38,7 @@ Furthermore, the following packages are required:
 - `aenum >= 2.1.2`
 
 
-### Change Log
-
- _August 31, 2018_ <br />
+## Change Log
+ _August, 2018_ <br />
 &nbsp;&nbsp; **Version 1.0.1** <br />
 &nbsp;&nbsp;&nbsp;&nbsp; First stable release
