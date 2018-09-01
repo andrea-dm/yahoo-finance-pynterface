@@ -104,7 +104,7 @@ class Get():
         r,f = cls.Data(tickers, interval, period, events=api.EventsInQuery.DIVIDENDS, using_api=using_api);
         if len(r)>0:
             k = 'events' if using_api is api.AccessMode.CHART else 'data';
-            return {ticker:core.parser(data[k]) for ticker,data in r.items()}, f;
+            return ({ticker:data[k] for ticker,data in r.items()}, f) if isinstance(tickers,list) else (r[tickers][k],f);
         else:
             return None, f;
 
@@ -116,7 +116,7 @@ class Get():
         r,f = cls.Data(tickers, interval, period, events=api.EventsInQuery.SPLITS, using_api=using_api);
         if len(r)>0:
             k = 'events' if using_api is api.AccessMode.CHART else 'data';
-            return {ticker:core.parser(data[k]) for ticker,data in r.items()}, f;
+            return ({ticker:data[k] for ticker,data in r.items()}, f) if isinstance(tickers,list) else (r[tickers][k],f);
         else:
             return None, f;
 
