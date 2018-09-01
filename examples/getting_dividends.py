@@ -4,10 +4,8 @@
 # The following example shows how to import the Yahoo Finance Python Interface
 # into your own script, and how to use it.
 # 
-# In particular, we will download the timeseries of APPLE close daily price from 2017-09-1 to 2018-08-31,
-# and then will plot them using the matplotlib package.
-# In order to illustrate the implementation of pandas.DataFrame within the YahooFinancePynterface, 
-# we will plot the 20-periods simple moving avarege on the same figure.
+# In particular, we will download the timeseries of APPLE dividends of the last 10 years.
+# The result wil be plotted as bar chart using the matplotlib package.
 #
 
 import yahoo_finance_pynterface as yahoo
