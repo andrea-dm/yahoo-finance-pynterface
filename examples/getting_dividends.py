@@ -14,19 +14,17 @@ import matplotlib.ticker        as mticker
 
 if __name__ == '__main__':
     fig, ax = plt.subplots(1)
-
-    ticker = "AAPL";
-    r,_ = yahoo.Get.Dividends(ticker, period=['1998-09-1','2018-08-31']);
+    
+    r,_ = yahoo.Get.Dividends("AAPL", period=['1998-09-1','2018-08-31']);
     if len(r)>0:
         r.plot(kind='bar', ax=ax);
-        ticklabels = [item.strftime('%Y-%m-%d') for item in r.index];
-        ax.grid(True, alpha=0.2)
-        ax.xaxis.set_major_formatter(mticker.FixedFormatter(ticklabels));
-        print(r)
+        ax.grid(True, alpha=0.2);
+        ax.xaxis.set_major_formatter(mticker.FixedFormatter([item.strftime('%Y-%m-%d') for item in r.index]));
+        print(r);
     else:
-        print("something odd happened o.O")
+        print("something odd happened o.O");
     
-    plt.gcf().autofmt_xdate()
+    plt.gcf().autofmt_xdate();
     plt.show();
 
 
