@@ -17,7 +17,7 @@ and it is meant to offer effective methods to interact with its API.
 
 ## About
 **yahoo-finance-pynterface** makes an extensive use of [pandas](https://pandas.pydata.org/).<br />
-Hence, most of the data retrieved are returned as _pandas_.**DataFrame** object. 
+As a consequence, most of the data retrieved are returned as `_pandas_.DataFrame` object. 
 
 Even if a stable release is available, the project has yet to be considered "complete" and many other features has yet to come!
 Please, drop me an email if any comment/suggestion/remark pops up in your mind :)
