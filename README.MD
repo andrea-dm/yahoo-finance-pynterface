@@ -1,6 +1,6 @@
-# Yahoo Finance Python Interface
-
 [TOC]
+
+# Yahoo Finance Python Interface
 
 **yahoo-finance-pynterface** is a Python package that provides a new interface to the Yahoo Finance API.
 
