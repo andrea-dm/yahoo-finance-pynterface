@@ -25,7 +25,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-__name__    = "YahooFinancePynterface";
+__name__    = "yahoo_finance_pynterface";
 __version__ = "1.0.1";
 __author__  = "Andrea del Monaco";
 __all__     = ['Get'];
