@@ -41,7 +41,7 @@ from typing                 import Tuple, Dict, List, Union, ClassVar, Any, Opti
 
 TickerType = Union[str, List[str]];
 PeriodType = Optional[Union[str,List[Union[str,dt.datetime]]]];
-AccessModeType = Type[api.AccessMode];
+AccessModeType = Type[api.AccessModeInQuery];
 QueryType = Type[api.Query];
 
 class Get():
@@ -79,34 +79,34 @@ class Get():
 
     @classmethod
     def Info(cls, tickers:TickerType) -> Dict[str,Any]:
-        r= cls.Data(tickers, "1d", "1y", using_api=api.AccessMode.CHART);
+        r= cls.Data(tickers, "1d", "1y", using_api=api.AccessModeInQuery.CHART);
         return { ticker:core.parser({k:v for k,v in data['meta'].items() if k not in ['dataGranularity', 'validRanges']}) for ticker,data in r.items()};
 
     @classmethod
     def Prices(cls, tickers:TickerType,
             interval:str="1d", 
             period:PeriodType=None,
-            using_api:AccessModeType=api.AccessMode.CHART) -> Optional[Union[Dict[str,Any],pd.DataFrame]]:
+            using_api:AccessModeType=api.AccessModeInQuery.CHART) -> Optional[Union[Dict[str,Any],pd.DataFrame]]:
         r = cls.Data(tickers, interval, period, events=api.EventsInQuery.HISTORY, using_api=using_api);
-        k = 'quotes' if using_api is api.AccessMode.CHART else 'data';
+        k = 'quotes' if using_api is api.AccessModeInQuery.CHART else 'data';
         return {ticker:data[k] for ticker,data in r.items()} if isinstance(tickers,list) else r[tickers][k];
 
     @classmethod
     def Dividends(cls, tickers:TickerType,
             interval:str="1d",
             period:PeriodType=None,
-            using_api:AccessModeType=api.AccessMode.CHART) -> Optional[Union[Dict[str,Any],pd.DataFrame]]:
+            using_api:AccessModeType=api.AccessModeInQuery.CHART) -> Optional[Union[Dict[str,Any],pd.DataFrame]]:
         r = cls.Data(tickers, interval, period, events=api.EventsInQuery.DIVIDENDS, using_api=using_api);
-        k = 'events' if using_api is api.AccessMode.CHART else 'data';
+        k = 'events' if using_api is api.AccessModeInQuery.CHART else 'data';
         return {ticker:data[k] for ticker,data in r.items()} if isinstance(tickers,list) else r[tickers][k];
 
     @classmethod
     def Splits(cls, tickers:TickerType,
             interval:str="1d",
             period:PeriodType=None,
-            using_api:AccessModeType=api.AccessMode.CHART) -> Optional[Union[Dict[str,Any],pd.DataFrame]]:
+            using_api:AccessModeType=api.AccessModeInQuery.CHART) -> Optional[Union[Dict[str,Any],pd.DataFrame]]:
         r = cls.Data(tickers, interval, period, events=api.EventsInQuery.SPLITS, using_api=using_api);
-        k = 'events' if using_api is api.AccessMode.CHART else 'data';
+        k = 'events' if using_api is api.AccessModeInQuery.CHART else 'data';
         return {ticker:data[k] for ticker,data in r.items()} if isinstance(tickers,list) else r[tickers][k]
 
     @classmethod
@@ -114,7 +114,7 @@ class Get():
              interval:str="1d",
              period:Optional[Union[str,dt.datetime,List[Union[str,dt.datetime]]]]=None,
              events:Type[api.EventsInQuery]=api.EventsInQuery.HISTORY,
-             using_api:AccessModeType=api.AccessMode.DEFAULT) -> Dict[str,Any]:
+             using_api:AccessModeType=api.AccessModeInQuery.DEFAULT) -> Dict[str,Any]:
         
         if isinstance(tickers,str) or (isinstance(tickers,list) and all(isinstance(ticker,str) for ticker in tickers)):
             tickers = tickers if isinstance(tickers, list) else list([tickers]);
@@ -124,14 +124,14 @@ class Get():
         
         if period is None:
             t = dt.datetime.now();
-            period = [t-dt.timedelta(weeks=52),t] if using_api is api.AccessMode.DOWNLOAD else "1y";
+            period = [t-dt.timedelta(weeks=52),t] if using_api is api.AccessModeInQuery.DOWNLOAD else "1y";
 
         params = api.Query(using_api);
         params.SetPeriod(period);
         params.SetInterval(interval);
         params.SetEvents(events);
-        if not isinstance(using_api,api.AccessMode):
-            raise TypeError(f"invalid type for the argument 'using_api'! <class 'api.AccessMode'> expected; got {type(api)}");
+        if not isinstance(using_api,api.AccessModeInQuery):
+            raise TypeError(f"invalid type for the argument 'using_api'! <class 'api.AccessModeInQuery'> expected; got {type(api)}");
         else:
             if cls.__processing_mode__ is core.ProcessingMode.PARALLEL:
                 get = cls.__parallel__;

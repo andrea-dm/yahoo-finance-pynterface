@@ -15,7 +15,7 @@ from dateutil.parser    import parse as dt_p
 import types
 
 
-class AccessMode(core.API):
+class AccessModeInQuery(core.API):
     # Enumeration class to list available API access modes.
     NONE = 'n/a';
     DOWNLOAD = 'download';
@@ -41,9 +41,9 @@ class Query():
     __chart_interval__:ClassVar[List[str]]     = ["1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h", "1d", "5d", "1wk", "1mo", "3mo"];
     __download_frequency__:ClassVar[List[str]] = ["1d", "1wk", "1mo"];
     
-    def __init__(self, using_api:Type[AccessMode]):
+    def __init__(self, using_api:Type[AccessModeInQuery]):
         self.query:Dict[str,Optional[str]] = {};
-        self.__api__:AccessMode = using_api;
+        self.__api__:AccessModeInQuery = using_api;
 
     def __str__(self):
         return "&".join([f"{param}={value}" for param, value in self.query.items() if value is not None]) if len(self.query)>0 else "";
@@ -59,9 +59,9 @@ class Query():
             self.query['events'] = None;
             raise TypeError(f"invalid type for the argument 'events'; <class 'EventsInQuery'> expected, got {type(events)}");
         else:
-            if self.__api__ is AccessMode.CHART:
+            if self.__api__ is AccessModeInQuery.CHART:
                 self.query['events'] = events if events not in [EventsInQuery.HISTORY, EventsInQuery.NONE] else None;
-            elif self.__api__ is AccessMode.DOWNLOAD:
+            elif self.__api__ is AccessModeInQuery.DOWNLOAD:
                 self.query['events'] = events if events is not EventsInQuery.NONE else str(EventsInQuery.HISTORY);
             else:
                 self.query['events'] = None;
@@ -72,8 +72,8 @@ class Query():
             self.query['interval'] = None;
             raise TypeError(f"invalid type for the argument 'interval'; {type(str)} expected, got {type(interval)}");
         else:
-            if (self.__api__ is AccessMode.CHART and interval in self.__chart_interval__) \
-            or (self.__api__ is AccessMode.DOWNLOAD and interval in self.__download_frequency__):
+            if (self.__api__ is AccessModeInQuery.CHART and interval in self.__chart_interval__) \
+            or (self.__api__ is AccessModeInQuery.DOWNLOAD and interval in self.__download_frequency__):
                 self.query['interval'] = interval;
             else:
                 self.query['interval'] = None;
@@ -83,7 +83,7 @@ class Query():
         if isinstance(period,list) and len(period) is 2 and all(lambda p: isinstance(p,int) or isinstance(p,dt.datetime) or isinstance(p,str) for p in period):
             self.query['period1'], self.query['period2'] = self.__parse_periods__(*(period));
         elif isinstance(period,str):
-            if self.__api__ is AccessMode.CHART and period in self.__chart_range__:
+            if self.__api__ is AccessModeInQuery.CHART and period in self.__chart_range__:
                 self.query['range'] = period;
             else:
                 raise ValueError(f"value of argument 'period' is not compatible with the given API '{str(self.__api__)}'");
@@ -120,7 +120,7 @@ class Query():
 
 class Response:   
     # Class to parse and process responses sent back by the Yahoo Finance API.
-    # Use the 'Parse()' method to correctly retrieve data structures in accordance to the chosen 'AccessMode' API.
+    # Use the 'Parse()' method to correctly retrieve data structures in accordance to the chosen 'AccessModeInQuery' API.
 
     def __init__(self, input:Type[requests.models.Response]): 
         self.__format__:str = ""; 
@@ -232,7 +232,7 @@ class Session:
     # The maximum number of attempts has been hardcodedly set to 10.
 
     __yahoo_finance_url__:str = "";
-    __yahoo_finance_api__:Type[AccessMode] = AccessMode.NONE;
+    __yahoo_finance_api__:Type[AccessModeInQuery] = AccessModeInQuery.NONE;
 
     def __init__(self):
         self.__last_time_checked__ : dt.datetime;
@@ -240,9 +240,9 @@ class Session:
         self.__crumb__ : str;
 
     @classmethod
-    def With(cls, this_api:Type[AccessMode]) -> Union['Session',NoReturn]:
-        if not isinstance(this_api,AccessMode):
-            raise TypeError(f"invalid type for the argument 'this_api'; <class 'AccessMode'> expected, got {type(this_api)}.");
+    def With(cls, this_api:Type[AccessModeInQuery]) -> Union['Session',NoReturn]:
+        if not isinstance(this_api,AccessModeInQuery):
+            raise TypeError(f"invalid type for the argument 'this_api'; <class 'AccessModeInQuery'> expected, got {type(this_api)}.");
         else:
             cls.__set_api__(this_api);
             cls.__set_url__();
@@ -252,15 +252,15 @@ class Session:
 
     @classmethod
     def __set_url__(cls) -> Optional[NoReturn]:
-        if cls.__yahoo_finance_api__ is not AccessMode.NONE:
+        if cls.__yahoo_finance_api__ is not AccessModeInQuery.NONE:
             cls.__yahoo_finance_url__ = f"https://query1.finance.yahoo.com/v7/finance/{cls.__yahoo_finance_api__}/";
         else:
             raise UnboundLocalError("session's api has not been set yet");
 
     @classmethod
-    def __set_api__(cls, input_api:Type[AccessMode]=AccessMode.DEFAULT) -> None:
+    def __set_api__(cls, input_api:Type[AccessModeInQuery]=AccessModeInQuery.DEFAULT) -> None:
         if cls.__yahoo_finance_api__ is not input_api:
-            cls.__yahoo_finance_api__ = input_api if input_api is not AccessMode.NONE else AccessMode.DEFAULT;
+            cls.__yahoo_finance_api__ = input_api if input_api is not AccessModeInQuery.NONE else AccessModeInQuery.DEFAULT;
         #else:
         #    print(f"*INFO: the session 'api' was already '{input_api}'.");
 

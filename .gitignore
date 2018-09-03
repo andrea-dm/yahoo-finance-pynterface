@@ -262,5 +262,9 @@ paket-files/
 __pycache__/
 *.pyc
 
+setup.py
 test.py
 version.txt
+dist/
+build/
+yahoo_finance_pynterface.egg-info/

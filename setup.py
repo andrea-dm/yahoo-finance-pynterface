@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.0.1",
     author="Andrea del Monaco",
     author_email="and.delmonaco@gmail.com",
-    description="A Python Interface to Yahoo Finance API",
+    description="A Python Interface to the Yahoo Finance API",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/andrea-dm/yahoo-finance-pynterface",
