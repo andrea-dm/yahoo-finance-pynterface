@@ -43,14 +43,14 @@ Furthermore, the following packages are required:
 Use `pip` to install **yahoo_finance_pynterface**:
 
 ```python
-   pip install yahoo_finance_pynterface
+   pip install yahoo-finance-pynterface
 ```
 
 <br />
 
 ## Documentation
 For a quick reference, navigate to the [Wiki Page](https://github.com/andrea-dm/yahoo-finance-pynterface/wiki).<br />
-And do not forget to check the [examples](./examples/)!
+And do not forget to check the [examples](https://github.com/andrea-dm/yahoo-finance-pynterface/tree/master/examples)!
 
 <br />
 
