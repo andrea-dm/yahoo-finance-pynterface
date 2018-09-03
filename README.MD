@@ -43,7 +43,8 @@ Furthermore, the following packages are required:
 Use `pip` to install **yahoo_finance_pynterface**:
 
 ```python
-   pip install yahoo_finance_pynterface```
+   pip install yahoo_finance_pynterface
+```
 
 <br />
 
