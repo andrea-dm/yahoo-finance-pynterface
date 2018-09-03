@@ -15,10 +15,11 @@ import matplotlib.pyplot        as plt
 import matplotlib.dates         as mdates
 
 if __name__ == '__main__':
+
     fig, ax = plt.subplots(1);
     
-    r,_ = yahoo.Get.Prices("AAPL", period=['2017-09-1','2018-08-31']);
-    if len(r)>0:
+    r = yahoo.Get.Prices("AAPL", period=['2017-09-1','2018-08-31']);
+    if r is not None:
         plt.plot(r.index.values, r['Close']);
         plt.plot(r.index.values, r['Close'].rolling(20).mean());
         ax.grid(True, alpha=0.5);
@@ -29,6 +30,6 @@ if __name__ == '__main__':
     else:
         print("something odd happened o.O");
     
-    fig.autofmt_xdate();
+    plt.gcf().autofmt_xdate();
     plt.show();
 
