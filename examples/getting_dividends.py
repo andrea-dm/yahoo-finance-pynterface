@@ -17,13 +17,15 @@ if __name__ == '__main__':
     
     r = yahoo.Get.Dividends("AAPL", period=['1998-09-1','2018-08-31']);
     if r is not None:
-        r.plot(kind='bar', ax=ax);
+        r.index.name = "";
+        r.plot(kind='bar', ax=ax, zorder=100);
         ax.grid(True, alpha=0.2);
         ax.xaxis.set_major_formatter(mticker.FixedFormatter([item.strftime('%Y-%m-%d') for item in r.index]));
         print(r);
     else:
         print("something odd happened o.O");
     
+    plt.title("Apple Inc.: Dividends")
     plt.gcf().autofmt_xdate();
     plt.show();
 
