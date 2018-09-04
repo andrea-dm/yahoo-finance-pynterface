@@ -23,9 +23,9 @@ if __name__ == '__main__':
     if r is not None:
         mu = r.Close.rolling(20).mean()
         sigma = r.Close.rolling(20).std()
-        plt.fill_between(r.index.values,mu+2*sigma,mu-2*sigma, color='moccasin');
-        plt.plot(r.index.values, mu, color='orange');
-        plt.plot(r.index.values, r.Close, color='dodgerblue');
+        plt.plot(r.index.values, r.Close, color='dodgerblue', label="", zorder=30);
+        plt.plot(r.index.values, mu, color='orange', label="SMA(20)", zorder=20);
+        plt.fill_between(r.index.values,mu+2*sigma,mu-2*sigma, color='moccasin', label="", zorder=10);
         ax.grid(True, alpha=0.5);
         ax.xaxis.set_major_locator(mdates.MonthLocator(bymonthday=1));
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'));     
@@ -35,6 +35,8 @@ if __name__ == '__main__':
     else:
         print("something odd happened o.O");
     
+    plt.title("Apple Inc.")
+    plt.legend();
     plt.gcf().autofmt_xdate();
     plt.show();
 
