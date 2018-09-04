@@ -20,7 +20,7 @@ the 20-periods simple moving avarege will be plotted on the same figure as well,
 
 ## `growth_comparison.py`
 This script will download the timeseries of three different stocks close daily price from 2008-01-01 to 2018-08-31,<br />
-and then will plot their growth in percentage terms on a line chart using matplotlib.
+and then will plot their growth in percentage terms on a line chart using `matplotlib`.
 ![result](resources/growth_comparison.png)
 
 
