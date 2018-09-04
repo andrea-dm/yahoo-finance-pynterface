@@ -1,3 +1,13 @@
+# 
+# Copyright (c) 2018 Andera del Monaco
+#
+# The following example shows how to import the Yahoo Finance Python Interface
+# into your own script, and how to use it together with pandas.
+# 
+# In particular, we will download the timeseries of three different stock close daily price from 2008-01-01 to 2018-08-31,
+# and then will plot their growth evolution in a line chart using matplotlib.
+#
+
 import yahoo_finance_pynterface as yahoo
 import pandas                   as pd
 
