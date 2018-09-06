@@ -23,9 +23,9 @@ if __name__ == '__main__':
     
     data = yahoo.Get.Prices(tickers, interval="1mo", period=['2008-1-1','2018-08-31']);
 
-    assets = pd.DataFrame({ticker:(df.AdjClose.pct_change()+1).cumprod() for ticker,df in data.items()});
+    assets = pd.DataFrame({ticker:(df['Adj Close'].pct_change()+1).cumprod() for ticker,df in data.items()});
     assets.index.name = "";
-    assets.plot(ax=ax, title="A growth comparison since January, 2018");
+    assets.plot(ax=ax, title="A growth comparison since January, 2008");
 
     ax.grid(True, alpha=0.5);    
     ax.xaxis.set_major_locator(mdates.MonthLocator(interval=6));

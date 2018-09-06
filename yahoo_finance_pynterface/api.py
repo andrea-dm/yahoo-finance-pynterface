@@ -158,7 +158,7 @@ class Response:
                         'High'     : np.array(data['indicators']['quote'][0]['high']),
                         'Low'      : np.array(data['indicators']['quote'][0]['low']),
                         'Close'    : np.array(data['indicators']['quote'][0]['close']),
-                        'AdjClose' : np.array(data['indicators']['adjclose'][0]['adjclose'])
+                        'Adj Close': np.array(data['indicators']['adjclose'][0]['adjclose'])
                                         if 'adjclose' in data['indicators'].keys()
                                         else np.full(len(data['indicators']['quote'][0]['close']),np.NaN),
                         'Volume'   : np.array(data['indicators']['quote'][0]['volume'])},
