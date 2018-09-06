@@ -19,7 +19,7 @@ the 20-periods Bollinger bands will be plotted on the same figure as well, as th
 
 
 ## `growth_comparison.py`
-This script will download the timeseries of three different stocks close daily price from 2008-01-01 to 2018-08-31,<br />
+This script will download the timeseries of three different stocks close daily price from January, 2008 to September, 2018,<br />
 and then will plot their growth in percentage terms on a line chart using `matplotlib`.
 ![result](resources/growth_comparison.png)
 
