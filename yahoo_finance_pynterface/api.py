@@ -111,7 +111,7 @@ class Query():
             try:
                 period2 = int(dt_p(value2).timestamp());
             except OSError:
-                period2 = dt.datetime.now();
+                period2 = dt.datetime.now().timestamp();
         else:
             period2 = max(period1,int(time.mktime(value2.timetuple()))) if isinstance(value2, dt.datetime) else max(period1,value2);
 
