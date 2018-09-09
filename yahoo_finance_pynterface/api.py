@@ -99,7 +99,7 @@ class Query():
         # For compatibility reasons, we do not accept timestamps prior to epoch time 0.
         if isinstance(value1,str):
             try:
-                period1 = int(dt_p(value1).timestamp());
+                period1 = int(dt_p(value1));
             except (OSError,OverflowError):
                 period1 = 0; 
         else:
