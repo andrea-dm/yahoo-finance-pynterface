@@ -57,7 +57,7 @@ And do not forget to check the [examples](https://github.com/andrea-dm/yahoo-fin
 
 ## Change Log
  _September 12, 2018_ <br />
-&nbsp;&nbsp; **Version 1.0.3** <br />
+&nbsp;&nbsp; **Version 1.0.4** <br />
 &nbsp;&nbsp;&nbsp;&nbsp; Fixed modules imported
 
  _September 07, 2018_ <br />
