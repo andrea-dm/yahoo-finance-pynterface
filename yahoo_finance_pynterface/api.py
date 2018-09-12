@@ -1,4 +1,4 @@
-import core
+from . import core
 
 import io
 import re  
