@@ -1,4 +1,5 @@
 # Yahoo Finance Python Interface
+![PyPI - Python Version](https://img.shields.io/badge/Python-3.5%20%7C%203.6%20%7C%203.7-blue.svg?longCache=true&style=flat) ![[PyPI - Package Version](https://img.shields.io/badge/pypi-1.0.2-blue.svg?longCache=true&style=flat) ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) ![Status - Stable](https://img.shields.io/badge/status-stable-brightgreen.svg?longCache=true&style=flat)
 
 **yahoo-finance-pynterface** is a Python package that provides a new interface to the Yahoo Finance API.
 
