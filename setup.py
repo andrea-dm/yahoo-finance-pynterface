@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="yahoo_finance_pynterface",
-    version="1.0.2",
+    version="1.0.3",
     author="Andrea del Monaco",
     author_email="and.delmonaco@gmail.com",
     description="A Python Interface to the Yahoo Finance API",
