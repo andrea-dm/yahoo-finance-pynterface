@@ -6,11 +6,12 @@ import requests
 import pytz       
 import time
 import datetime         as dt
+import dateutil.parser  as du
 import numpy            as np
 import pandas           as pd
 
-from typing             import Tuple, Dict, List, Union, ClassVar, Any, Optional, Type, NoReturn, NewType
-from dateutil.parser    import parse as dt_p
+from typing             import Tuple, Dict, List, Union, ClassVar, Any, Optional, Type
+
 
 import types
 
@@ -24,7 +25,9 @@ class AccessModeInQuery(core.API):
 
 
 class EventsInQuery(core.API):
-    # Enumeration class to list the 'events' that is possible to request.
+    """
+    Enumeration class to list the 'events' that is possible to request.
+    """
     NONE = '';
     HISTORY = 'history';
     DIVIDENDS = 'div';
@@ -32,9 +35,11 @@ class EventsInQuery(core.API):
 
 
 class Query():
-    # Class that encodes the request parameters into a query.
-    # It provides methods to set such parameters 
-    # as well as to validate them in accordance to the Yahoo Finance API expected arguments.
+    """
+    Class that encodes the request parameters into a query.
+    It provides methods to set such parameters 
+    as well as to validate them in accordance to the Yahoo Finance API expected arguments.
+    """
 
     __events__:ClassVar[List[str]]             = ["history", "split", "div"];
     __chart_range__:ClassVar[List[str]]        = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"];
@@ -54,7 +59,7 @@ class Query():
     def __bool__(self):
         return True if len(self.query)>0 else False;
 
-    def SetEvents(self, events:Type[EventsInQuery]) -> Optional[NoReturn]:
+    def SetEvents(self, events:Type[EventsInQuery]) -> None:
         if not isinstance(events, EventsInQuery):
             self.query['events'] = None;
             raise TypeError(f"invalid type for the argument 'events'; <class 'EventsInQuery'> expected, got {type(events)}");
@@ -67,7 +72,7 @@ class Query():
                 self.query['events'] = None;
                 raise ValueError(f"value of argument 'events' is not compatible with the given API '{str(self.__api__)}'");
 
-    def SetInterval(self, interval:str) -> Optional[NoReturn]:
+    def SetInterval(self, interval:str) -> None:
         if not isinstance(interval, str):
             self.query['interval'] = None;
             raise TypeError(f"invalid type for the argument 'interval'; {type(str)} expected, got {type(interval)}");
@@ -79,7 +84,7 @@ class Query():
                 self.query['interval'] = None;
                 raise ValueError(f"value of argument 'interval' is not compatible with the given API '{str(self.__api__)}'");
 
-    def SetPeriod(self, period:Union[str,dt.datetime,List[Union[int,dt.datetime]]]) -> Optional[NoReturn]:
+    def SetPeriod(self, period:Union[str,dt.datetime,List[Union[int,dt.datetime]]]) -> None:
         if isinstance(period,list) and len(period) is 2 and all(lambda p: isinstance(p,int) or isinstance(p,dt.datetime) or isinstance(p,str) for p in period):
             self.query['period1'], self.query['period2'] = self.__parse_periods__(*(period));
         elif isinstance(period,str):
@@ -99,7 +104,7 @@ class Query():
         # For compatibility reasons, we do not accept timestamps prior to epoch time 0.
         if isinstance(value1,str):
             try:
-                period1 = int(dt_p(value1).timestamp());
+                period1 = int(du.isoparse(value1).timestamp());
             except (OSError,OverflowError):
                 period1 = 0; 
         else:
@@ -109,7 +114,7 @@ class Query():
             period2 = period2;
         elif isinstance(value2,str):
             try:
-                period2 = int(dt_p(value2).timestamp());
+                period2 = int(du.isoparse(value2).timestamp());
             except (OSError,OverflowError):
                 period2 = dt.datetime.now().timestamp();
         else:
@@ -119,9 +124,10 @@ class Query():
 
 
 class Response:   
-    # Class to parse and process responses sent back by the Yahoo Finance API.
-    # Use the 'Parse()' method to correctly retrieve data structures in accordance to the chosen 'AccessModeInQuery' API.
-
+    """
+    Class to parse and process responses sent back by the Yahoo Finance API.
+    Use the 'Parse()' method to correctly retrieve data structures in accordance to the chosen 'AccessModeInQuery' API.
+    """
     def __init__(self, input:Type[requests.models.Response]): 
         self.__format__:str = ""; 
         self.__error__:Optional[Dict[str, str]] = None;
@@ -222,14 +228,16 @@ class Response:
 
 
 class Session:
-    # A lower level class that explicitly requests data to Yahoo Finance via HTTP.
-    # I provides two 'public' methods:
-    #
-    # - With(...):  to set the favorite access mode;
-    # - Get(...):   to explicitly push request to Yahoo.
-    #
-    # It implements a recursive call to the HTTP 'GET' method in case of failure.
-    # The maximum number of attempts has been hardcodedly set to 10.
+    """
+    A lower level class that explicitly requests data to Yahoo Finance via HTTP.
+    I provides two 'public' methods:
+    
+    - With(...):  to set the favorite access mode;
+    - Get(...):   to explicitly push request to Yahoo.
+    
+    It implements a recursive call to the HTTP 'GET' method in case of failure.
+    The maximum number of attempts has been hardcodedly set to 10.
+    """
 
     __yahoo_finance_url__:str = "";
     __yahoo_finance_api__:Type[AccessModeInQuery] = AccessModeInQuery.NONE;
@@ -240,7 +248,7 @@ class Session:
         self.__crumb__ : str;
 
     @classmethod
-    def With(cls, this_api:Type[AccessModeInQuery]) -> Union['Session',NoReturn]:
+    def With(cls, this_api:Type[AccessModeInQuery]) -> 'Session':
         if not isinstance(this_api,AccessModeInQuery):
             raise TypeError(f"invalid type for the argument 'this_api'; <class 'AccessModeInQuery'> expected, got {type(this_api)}.");
         else:
@@ -251,7 +259,7 @@ class Session:
             return session;
 
     @classmethod
-    def __set_url__(cls) -> Optional[NoReturn]:
+    def __set_url__(cls) -> None:
         if cls.__yahoo_finance_api__ is not AccessModeInQuery.NONE:
             cls.__yahoo_finance_url__ = f"https://query1.finance.yahoo.com/v7/finance/{cls.__yahoo_finance_api__}/";
         else:
@@ -294,7 +302,7 @@ class Session:
         self.__crumb__ = "";
         self.__last_time_checked__ = None;
 
-    def Get(self, ticker:str, params:Type[Query], attempt:int=0, timeout:int=10, last_error:str="") -> Union[Tuple[bool, dict],NoReturn]:
+    def Get(self, ticker:str, params:Type[Query], attempt:int=0, timeout:int=10, last_error:str="") -> Tuple[bool, dict]:
         if not isinstance(ticker,str):
             raise TypeError(f"invalid type for the argument 'ticker'! {type(str)} expected; got {type(ticker)}");
         if not isinstance(params, Query):
