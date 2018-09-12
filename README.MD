@@ -56,7 +56,11 @@ And do not forget to check the [examples](https://github.com/andrea-dm/yahoo-fin
 <br />
 
 ## Change Log
- _August, 2018_ <br />
+ _September 12, 2018_ <br />
+&nbsp;&nbsp; **Version 1.0.2** <br />
+&nbsp;&nbsp;&nbsp;&nbsp; Fixed type hints
+
+ _August 31, 2018_ <br />
 &nbsp;&nbsp; **Version 1.0.1** <br />
 &nbsp;&nbsp;&nbsp;&nbsp; First stable release
 
