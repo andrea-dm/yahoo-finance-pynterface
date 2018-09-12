@@ -30,8 +30,9 @@ __version__ = "1.0.2";
 __author__  = "Andrea del Monaco";
 __all__     = ['Get'];
 
-import api
-import core
+from . import api
+from . import core
+
 import requests
 import datetime             as dt
 import concurrent.futures   as cf
