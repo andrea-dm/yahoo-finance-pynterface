@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     fig, ax = plt.subplots(1);
     
-    r = yahoo.Get.Prices("AAPL", period=['2017-09-1','2018-08-31']);
+    r = yahoo.Get.Prices("AAPL", period=['2017-09-01','2018-08-31']);
     if r is not None:
         mu = r.Close.rolling(20).mean()
         sigma = r.Close.rolling(20).std()
