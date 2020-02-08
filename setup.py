@@ -20,5 +20,13 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Intended Audience :: Science/Research",
-        "Intended Audience :: Financial and Insurance Industry",],
+        "Intended Audience :: Financial and Insurance Industry",
+    ],
+    install_requires=[
+        'requests >= 2.19.1',
+        'pandas >= 0.23.4',
+        'numpy >= 1.15.1',
+        'pytz >= 2018.5',
+        'aenum >= 2.1.2',
+    ],
 )
